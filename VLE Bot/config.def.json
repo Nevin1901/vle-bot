@@ -1,0 +1,10 @@
+{
+	"Token": "Your_Token",
+	"ConnectionString": "PSQL_Connection_String",
+	"BotStatus": {
+		"Name": "Test Game",
+		"Details": "Test Details",
+		"Type": "Playing",
+		"Flags": "None"
+	}
+}
