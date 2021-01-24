@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VLE Bot", "VLE Bot\VLE Bot.csproj", "{C6EFB7C9-C3CF-489E-B716-39AA6D2126CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6EFB7C9-C3CF-489E-B716-39AA6D2126CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6EFB7C9-C3CF-489E-B716-39AA6D2126CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6EFB7C9-C3CF-489E-B716-39AA6D2126CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6EFB7C9-C3CF-489E-B716-39AA6D2126CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C238E424-3183-4944-95E4-62C12873C19F}
+	EndGlobalSection
+EndGlobal
