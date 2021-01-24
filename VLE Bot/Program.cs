@@ -23,20 +23,22 @@ namespace VLE_Bot
         public async Task MainAsync()
         {
 
-            using (System.IO.StreamReader reader = new StreamReader(@"C:\Users\Nevin\source\repos\VLE Bot\config.json"))
+            if (!File.Exists(@"C:\Users\Nevin\source\repos\VLE Bot\VLE Bot\config.json"))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error: No Config File. Create one following config.def.h");
+                Environment.Exit(0);
+            }
+            using (System.IO.StreamReader reader = new StreamReader(@"C:\Users\Nevin\source\repos\VLE Bot\VLE Bot\config.json"))
             { 
                 string jsonObject = await reader.ReadToEndAsync();
 
                 _botInfo = JsonConvert.DeserializeObject<BotInfo>(jsonObject);
-
-                Console.WriteLine(_botInfo.Token);
-
             }
 
-
-        
             _client = new DiscordSocketClient();
 
+            CommandHandler commandHandler = new CommandHandler(_client);
 
             await _client.LoginAsync(TokenType.Bot, _botInfo.Token);
 
