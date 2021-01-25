@@ -15,7 +15,7 @@ namespace VLE_Bot
 
         private readonly CommandService _commands;
 
-        public CommandHandler(DiscordSocketClient client, CommandService command)
+        public CommandHandler(DiscordSocketClient client, CommandService command, BotInfo botInfo)
         {
             _client = client;
             _commands = command;

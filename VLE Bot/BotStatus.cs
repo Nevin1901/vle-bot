@@ -7,17 +7,6 @@ namespace VLE_Bot
 {
     class BotStatus : IActivity
     {
-
-        /*
-        public BotStatus( string name, string details, ActivityType type, ActivityProperties flags)
-        {
-            Flags = flags;
-            Name = name;
-            Type = type;
-            Details = details;
-        }
-        */
-
         public ActivityProperties Flags { get; set; }
         public string Name { get; set; }
 

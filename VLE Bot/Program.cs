@@ -14,12 +14,12 @@ namespace VLE_Bot
 
         private DiscordSocketClient _client;
 
-        private CommandService _commands = new CommandService(new CommandServiceConfig {CaseSensitiveCommands = false});
+        private readonly CommandService _commands = new CommandService(new CommandServiceConfig {CaseSensitiveCommands = false});
 
 
         //private readonly BotStatus _botStatus = new BotStatus("Google Meets", "Test Description", ActivityType.Playing, ActivityProperties.None);
 
-        private BotInfo _botInfo;
+        public BotInfo _botInfo;
         static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
 
 
@@ -40,7 +40,7 @@ namespace VLE_Bot
 
             _client = new DiscordSocketClient();
 
-            CommandHandler commandHandler = new CommandHandler(_client, _commands);
+            CommandHandler commandHandler = new CommandHandler(_client, _commands, _botInfo);
 
             await commandHandler.InstallCommandsAsync();
 

@@ -9,6 +9,7 @@ namespace VLE_Bot
 {
     public class InfoModule : ModuleBase<SocketCommandContext>
     {
+
         [Command("say")]
         [Summary("Echoes a Message")]
         public async Task SayASync([Summary("The text to echo")] string echo, int amount = 1)
