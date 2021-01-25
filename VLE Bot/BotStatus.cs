@@ -5,7 +5,7 @@ using Discord;
 
 namespace VLE_Bot
 {
-    class BotStatus : IActivity
+    public class BotStatus : IActivity
     {
         public ActivityProperties Flags { get; set; }
         public string Name { get; set; }

@@ -9,6 +9,11 @@ namespace VLE_Bot
 {
     public class InfoModule : ModuleBase<SocketCommandContext>
     {
+        private readonly BotInfo _botInfo;
+        public InfoModule(BotInfo botInfo)
+        {
+            _botInfo = botInfo;
+        }
 
         [Command("say")]
         [Summary("Echoes a Message")]
@@ -16,7 +21,7 @@ namespace VLE_Bot
         {
             if (amount > 10 || amount < 0)
             {
-                await ReplyAsync($"{Context.User.Mention}, You can't do it more than 10 times");
+                await ReplyAsync($"{Context.User.Mention}, You can't do it more than 10 times. {_botInfo.ConnectionString}");
                 return;
             }
             for (int i = 0; i < amount; i++)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VLE_Bot
 {
-    class BotInfo
+    public class BotInfo
     {
         public string Token { get; set; }
 

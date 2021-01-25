@@ -9,28 +9,38 @@ using Discord.WebSocket;
 
 namespace VLE_Bot
 {
-    class CommandHandler
+    public class CommandHandler
     {
         private readonly DiscordSocketClient _client;
 
         private readonly CommandService _commands;
 
-        public CommandHandler(DiscordSocketClient client, CommandService command, BotInfo botInfo)
+        private readonly IServiceProvider _services;
+
+        public CommandHandler(DiscordSocketClient client, CommandService command, IServiceProvider services)
         {
             _client = client;
             _commands = command;
+            _services = services;
         }
+
+
 
         public async Task InstallCommandsAsync()
         {
             _client.MessageReceived += HandleCommandAsync;
 
-            await _commands.AddModulesAsync(assembly: Assembly.GetEntryAssembly(), services: null);
+            await _commands.AddModulesAsync(assembly: Assembly.GetEntryAssembly(), services: _services);
+
+            Console.WriteLine("Installed Commands");
     
         }
 
         private async Task HandleCommandAsync(SocketMessage messageParam)
         {
+
+            Console.WriteLine("Message Recieved");
+
             var message = messageParam as SocketUserMessage;
 
             if (message == null) return;
@@ -41,7 +51,7 @@ namespace VLE_Bot
 
             var context = new SocketCommandContext(_client, message);
 
-            await _commands.ExecuteAsync(context: context, argPos: argPos, services: null);
+            await _commands.ExecuteAsync(context: context, argPos: argPos, services: _services);
 
         }
     }

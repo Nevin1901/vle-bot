@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.Net;
 using Discord.WebSocket;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace VLE_Bot
@@ -40,7 +42,9 @@ namespace VLE_Bot
 
             _client = new DiscordSocketClient();
 
-            CommandHandler commandHandler = new CommandHandler(_client, _commands, _botInfo);
+            IServiceProvider services = new ServiceCollection().AddSingleton(_client).AddSingleton(_commands).AddSingleton(_botInfo).BuildServiceProvider();
+
+            CommandHandler commandHandler = new CommandHandler(_client, _commands, services);
 
             await commandHandler.InstallCommandsAsync();
 
@@ -56,6 +60,7 @@ namespace VLE_Bot
 
             Console.WriteLine("Hello");
         }
+
 
     }
 }
