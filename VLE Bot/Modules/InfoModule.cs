@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Discord.Commands;
-using Discord.WebSocket;
 
 namespace VLE_Bot
 {
@@ -15,20 +12,35 @@ namespace VLE_Bot
             _botInfo = botInfo;
         }
 
-        [Command("say")]
+        [Command("test")]
         [Summary("Echoes a Message")]
-        public async Task SayASync([Summary("The text to echo")] string echo, int amount = 1)
+        public async Task SayASync()
         {
+            IEnumerable<Temps> temps = await DatabaseTools.GetAllPeople(_botInfo);
+            string outputTemps = "";
+            foreach (Temps temp in temps)
+            {
+                outputTemps += $"{temp.City} - {temp.Temp}\n";
+            }
+
+            await ReplyAsync($"{Context.User.Mention}, {outputTemps}");
+
+
+            /*
             if (amount > 10 || amount < 0)
             {
                 await DatabaseTools.GetAllPeople(_botInfo);
                 await ReplyAsync($"{Context.User.Mention}, You can't do it more than 10 times.");
                 return;
             }
+            */
+            /*
             for (int i = 0; i < amount; i++)
             {
                 await Context.Channel.SendMessageAsync($"{echo}");
             }
+            */
+
         }
 
     }

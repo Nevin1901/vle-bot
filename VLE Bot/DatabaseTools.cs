@@ -9,15 +9,12 @@ namespace VLE_Bot
 {
     static class DatabaseTools
     {
-        public static async Task GetAllPeople(BotInfo botInfo)
+        public static async Task<IEnumerable<Temps>> GetAllPeople(BotInfo botInfo)
         {
             await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
             {
                 IEnumerable<Temps> temps = await connection.QueryAsync<Temps>("SELECT * FROM nevin_table");
-                foreach (Temps temp in temps)
-                {
-                    Console.WriteLine(temp.City);
-                }
+                return temps;
             }
         }
     }
