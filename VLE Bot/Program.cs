@@ -14,6 +14,9 @@ namespace VLE_Bot
 
         private DiscordSocketClient _client;
 
+        private CommandService _commands = new CommandService(new CommandServiceConfig {CaseSensitiveCommands = false});
+
+
         //private readonly BotStatus _botStatus = new BotStatus("Google Meets", "Test Description", ActivityType.Playing, ActivityProperties.None);
 
         private BotInfo _botInfo;
@@ -22,7 +25,6 @@ namespace VLE_Bot
 
         public async Task MainAsync()
         {
-
             if (!File.Exists(@"C:\Users\Nevin\source\repos\VLE Bot\VLE Bot\config.json"))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -38,7 +40,9 @@ namespace VLE_Bot
 
             _client = new DiscordSocketClient();
 
-            CommandHandler commandHandler = new CommandHandler(_client);
+            CommandHandler commandHandler = new CommandHandler(_client, _commands);
+
+            await commandHandler.InstallCommandsAsync();
 
             await _client.LoginAsync(TokenType.Bot, _botInfo.Token);
 

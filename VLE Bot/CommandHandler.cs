@@ -15,9 +15,10 @@ namespace VLE_Bot
 
         private readonly CommandService _commands;
 
-        public CommandHandler(DiscordSocketClient client)
+        public CommandHandler(DiscordSocketClient client, CommandService command)
         {
             _client = client;
+            _commands = command;
         }
 
         public async Task InstallCommandsAsync()
@@ -25,7 +26,7 @@ namespace VLE_Bot
             _client.MessageReceived += HandleCommandAsync;
 
             await _commands.AddModulesAsync(assembly: Assembly.GetEntryAssembly(), services: null);
-
+    
         }
 
         private async Task HandleCommandAsync(SocketMessage messageParam)
@@ -35,6 +36,8 @@ namespace VLE_Bot
             if (message == null) return;
 
             int argPos = 0;
+
+            if (!message.HasCharPrefix('!', ref argPos) || message.Author.IsBot) return;
 
             var context = new SocketCommandContext(_client, message);
 
