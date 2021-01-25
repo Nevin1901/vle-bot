@@ -21,7 +21,8 @@ namespace VLE_Bot
         {
             if (amount > 10 || amount < 0)
             {
-                await ReplyAsync($"{Context.User.Mention}, You can't do it more than 10 times. {_botInfo.ConnectionString}");
+                await DatabaseTools.GetAllPeople(_botInfo);
+                await ReplyAsync($"{Context.User.Mention}, You can't do it more than 10 times.");
                 return;
             }
             for (int i = 0; i < amount; i++)
