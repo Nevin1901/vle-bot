@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Discord.Commands;
+using VLE_Bot.Models;
 
 namespace VLE_Bot
 {
@@ -16,14 +17,18 @@ namespace VLE_Bot
         [Summary("Echoes a Message")]
         public async Task SayASync()
         {
-            IEnumerable<Temps> temps = await DatabaseTools.GetAllPeople(_botInfo);
-            string outputTemps = "";
-            foreach (Temps temp in temps)
+            IEnumerable<SchoolClass> allClasses = await DatabaseTools.GetAllClasses(_botInfo);
+            string classOutput = "--- Classes ---\n";
+            foreach (SchoolClass cClass in allClasses)
             {
-                outputTemps += $"{temp.City} - {temp.Temp}\n";
+                classOutput += $"{cClass.ClassName} - {cClass.ClassLink}\n";
             }
 
-            await ReplyAsync($"{Context.User.Mention}, {outputTemps}");
+            classOutput += "<@&803327093285978123>";
+
+
+
+            await ReplyAsync(classOutput);
 
 
             /*
