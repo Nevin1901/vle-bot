@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Discord.Commands;
 using VLE_Bot.Models;
@@ -13,7 +14,7 @@ namespace VLE_Bot
             _botInfo = botInfo;
         }
 
-        [Command("test")]
+        [Command("classes")]
         [Summary("Echoes a Message")]
         public async Task SayASync()
         {
@@ -28,7 +29,7 @@ namespace VLE_Bot
 
 
 
-            await ReplyAsync(classOutput);
+            await Context.Channel.SendMessageAsync(classOutput);
 
 
             /*
@@ -46,6 +47,17 @@ namespace VLE_Bot
             }
             */
 
+        }
+
+        [Command("week")]
+        [Summary("Gets the current week")]
+        public async Task GetWeekAsync()
+        {
+            int currentWeek = await DatabaseTools.GetCurrentWeek(_botInfo);
+            Console.WriteLine(currentWeek);
+            if (currentWeek == 1) await ReplyAsync("It is currently A Week");
+            else if (currentWeek == 2) await ReplyAsync("It is currently B Week");
+            else await ReplyAsync("An error has occurred");
         }
 
     }

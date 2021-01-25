@@ -47,7 +47,7 @@ namespace VLE_Bot
 
             int argPos = 0;
 
-            if (!message.HasCharPrefix('!', ref argPos) || message.Author.IsBot) return;
+            if (!message.HasCharPrefix('!', ref argPos)) return;
 
             var context = new SocketCommandContext(_client, message);
 

@@ -14,8 +14,18 @@ namespace VLE_Bot
         {
             await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
             {
-                IEnumerable<SchoolClass> allClasses = await connection.QueryAsync<SchoolClass>("SELECT * FROM classes");
+                IEnumerable<SchoolClass> allClasses = await connection.QueryAsync<SchoolClass>("SELECT * FROM classes ORDER BY classname ASC");
                 return allClasses;
+            }
+        }
+
+        public static async Task<int> GetCurrentWeek(BotInfo botInfo)
+        {
+            await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
+            {
+                Week currentWeek = await connection.QueryFirstAsync<Week>("SELECT * FROM week");
+                Console.WriteLine(currentWeek.Week_Info);
+                return currentWeek.Week_Info;
             }
         }
     }
