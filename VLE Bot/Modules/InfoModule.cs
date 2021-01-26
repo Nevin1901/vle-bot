@@ -16,20 +16,26 @@ namespace VLE_Bot
 
         [Command("classes")]
         [Summary("Echoes a Message")]
-        public async Task SayASync()
+        public async Task GetClassesAsync()
         {
             IEnumerable<SchoolClass> allClasses = await DatabaseTools.GetAllClasses(_botInfo);
             string classOutput = "--- Classes ---\n";
             foreach (SchoolClass cClass in allClasses)
             {
-                classOutput += $"{cClass.ClassName} - {cClass.ClassLink}\n";
+                classOutput += $"{cClass.ClassName} - <{cClass.ClassLink}>\n";
             }
 
             classOutput += "<@&803327093285978123>";
 
-
+           // IEmote emote = new Emoji("\u23EB");
+           // await message.AddReactionAsync(emote);
 
             await Context.Channel.SendMessageAsync(classOutput);
+
+            await GetWeekAsync();
+
+            await Context.Channel.SendMessageAsync(
+                "https://cdn.discordapp.com/attachments/791777084359573544/797823268089626644/unknown.png");
 
 
             /*
@@ -54,10 +60,24 @@ namespace VLE_Bot
         public async Task GetWeekAsync()
         {
             int currentWeek = await DatabaseTools.GetCurrentWeek(_botInfo);
-            Console.WriteLine(currentWeek);
             if (currentWeek == 1) await ReplyAsync("It is currently A Week");
             else if (currentWeek == 2) await ReplyAsync("It is currently B Week");
             else await ReplyAsync("An error has occurred");
+        }
+
+        [Command("addclass")]
+        [Summary("Adds a class")]
+        public async Task AddClassAsync(string className = "", string classLink = "")
+        {
+            if (className == "" || classLink == "")
+            {
+                await ReplyAsync("Usage: !addclass className classLink");
+            }
+            else
+            {
+                int result = await DatabaseTools.AddClass(_botInfo, className, classLink);
+                await ReplyAsync($"{result} - Result of operation");
+            }
         }
 
     }

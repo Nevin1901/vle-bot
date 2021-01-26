@@ -24,8 +24,17 @@ namespace VLE_Bot
             await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
             {
                 Week currentWeek = await connection.QueryFirstAsync<Week>("SELECT * FROM week");
-                Console.WriteLine(currentWeek.Week_Info);
                 return currentWeek.Week_Info;
+            }
+        }
+
+        public static async Task<int> AddClass(BotInfo botInfo, string className, string classLink)
+        {
+            await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
+            {
+                int result = await connection.ExecuteAsync(
+                    "INSERT INTO classes (classname, classlink) VALUES (@ClassName, @ClassLink)", new {ClassName = className, ClassLink = classLink});
+                return result;
             }
         }
     }

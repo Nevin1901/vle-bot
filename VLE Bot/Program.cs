@@ -75,8 +75,10 @@ namespace VLE_Bot
             {
                 Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
 
-                var hi = _client.GetGuild(791661674771251211).GetTextChannel(791777084359573544);
-                Console.WriteLine(hi.Name);
+                int hi =_client.DMChannels.Count;
+
+                Console.WriteLine($"{hi} Nevin");
+
                 Thread.Sleep(5000);
             }
         }
