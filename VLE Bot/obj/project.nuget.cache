@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "56Y9LJ/qhVfIgrolD5sBVon8PsaAJM5JHMBn8uhYoj/ZBbfja24NpFt2OatAQ/Fxhokq/vEnJrFcaUmbT5xApg==",
+  "dgSpecHash": "oO/tt9rt0jBuleNwREh5n9XSlA3lfRhvEO/i9SIdt1PkkXlztRFbxOxIILSF/ufXa/6AOZZVokRIUqdQl5AuIQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nevin\\source\\repos\\VLE Bot\\VLE Bot\\VLE Bot.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,10 @@
     "C:\\Users\\Nevin\\.nuget\\packages\\discord.net.rest\\2.2.0\\discord.net.rest.2.2.0.nupkg.sha512",
     "C:\\Users\\Nevin\\.nuget\\packages\\discord.net.webhook\\2.2.0\\discord.net.webhook.2.2.0.nupkg.sha512",
     "C:\\Users\\Nevin\\.nuget\\packages\\discord.net.websocket\\2.2.0\\discord.net.websocket.2.2.0.nupkg.sha512",
+    "C:\\Users\\Nevin\\.nuget\\packages\\google.apis\\1.49.0\\google.apis.1.49.0.nupkg.sha512",
+    "C:\\Users\\Nevin\\.nuget\\packages\\google.apis.auth\\1.49.0\\google.apis.auth.1.49.0.nupkg.sha512",
+    "C:\\Users\\Nevin\\.nuget\\packages\\google.apis.core\\1.49.0\\google.apis.core.1.49.0.nupkg.sha512",
+    "C:\\Users\\Nevin\\.nuget\\packages\\google.apis.youtube.v3\\1.49.0.2217\\google.apis.youtube.v3.1.49.0.2217.nupkg.sha512",
     "C:\\Users\\Nevin\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
     "C:\\Users\\Nevin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Nevin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

@@ -68,21 +68,5 @@ namespace VLE_Bot
 
             Console.WriteLine("Hello");
         }
-
-        public async Task CheckTime()
-        {
-            while (true)
-            {
-                Console.WriteLine(DateTime.Now.ToString("HH:mm:ss"));
-
-                int hi =_client.DMChannels.Count;
-
-                Console.WriteLine($"{hi} Nevin");
-
-                Thread.Sleep(5000);
-            }
-        }
-
-
     }
 }

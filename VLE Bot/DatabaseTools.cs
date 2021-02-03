@@ -37,5 +37,34 @@ namespace VLE_Bot
                 return result;
             }
         }
+
+        public static async Task<int> AddSong(BotInfo botInfo, string songLink)
+        {
+            await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
+            {
+                int result = await connection.ExecuteAsync("UPDATE audio SET songlink = @SongLink WHERE id = 1", new {SongLink = songLink});
+                return result;
+            }
+        }
+
+        public static async Task<int> AddImage(BotInfo botInfo, string imageLink)
+        {
+            await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
+            {
+                int result = await connection.ExecuteAsync("UPDATE audio SET imageLink = @ImageLink WHERE id = 1",
+                    new {ImageLink = imageLink});
+                return result;
+            }
+        }
+
+        public static async Task<Audio> CheckUpload(BotInfo botInfo)
+        {
+            await using (var connection = new NpgsqlConnection(botInfo.ConnectionString))
+            {
+                Audio uploadedFiles =
+                    await connection.QueryFirstAsync<Audio>("SELECT id, songlink, imagelink FROM audio");
+                return uploadedFiles;
+            }
+        }
     }
 }
