@@ -35,7 +35,7 @@ namespace VLE_Bot
             await GetWeekAsync();
 
             await Context.Channel.SendMessageAsync(
-                "https://cdn.discordapp.com/attachments/791777084359573544/797823268089626644/unknown.png");
+                "https://cdn.discordapp.com/attachments/791777084359573544/815688482780741722/unknown.png");
 
 
             /*
@@ -60,8 +60,8 @@ namespace VLE_Bot
         public async Task GetWeekAsync()
         {
             int currentWeek = await DatabaseTools.GetCurrentWeek(_botInfo);
-            if (currentWeek == 1) await ReplyAsync("It is currently A Week");
-            else if (currentWeek == 2) await ReplyAsync("It is currently B Week");
+            if (currentWeek == 1) await ReplyAsync("It is currently A Week. ASH Goes 3 times");
+            else if (currentWeek == 2) await ReplyAsync("It is currently B Week. ASH Goes 2 times");
             else await ReplyAsync("An error has occurred");
         }
 

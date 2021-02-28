@@ -1840,26 +1840,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nevin\\.nuget\\packages\\": {}
+    "/home/nevin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nevin\\source\\repos\\VLE Bot\\VLE Bot\\VLE Bot.csproj",
+      "projectUniqueName": "/home/nevin/Desktop/vlebot/VLE Bot/VLE Bot.csproj",
       "projectName": "VLE Bot",
-      "projectPath": "C:\\Users\\Nevin\\source\\repos\\VLE Bot\\VLE Bot\\VLE Bot.csproj",
-      "packagesPath": "C:\\Users\\Nevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nevin\\source\\repos\\VLE Bot\\VLE Bot\\obj\\",
+      "projectPath": "/home/nevin/Desktop/vlebot/VLE Bot/VLE Bot.csproj",
+      "packagesPath": "/home/nevin/.nuget/packages/",
+      "outputPath": "/home/nevin/Desktop/vlebot/VLE Bot/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/nevin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1922,7 +1920,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.103/RuntimeIdentifierGraph.json"
       }
     }
   }
