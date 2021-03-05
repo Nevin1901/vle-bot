@@ -17,7 +17,7 @@ namespace VLE_Bot
 
         private DiscordSocketClient _client;
 
-        private readonly CommandService _commands = new CommandService(new CommandServiceConfig {CaseSensitiveCommands = false});
+        private readonly CommandService _commands = new CommandService(new CommandServiceConfig { CaseSensitiveCommands = false });
 
 
         //private readonly BotStatus _botStatus = new BotStatus("Google Meets", "Test Description", ActivityType.Playing, ActivityProperties.None);
@@ -35,13 +35,13 @@ namespace VLE_Bot
                 Environment.Exit(0);
             }
             using (System.IO.StreamReader reader = new StreamReader(@"config.json"))
-            { 
+            {
                 string jsonObject = await reader.ReadToEndAsync();
                 _botInfo = JsonConvert.DeserializeObject<BotInfo>(jsonObject);
             }
 
             _client = new DiscordSocketClient();
-            
+
             // make it so that the bot info can be passed as an argument to the command classes
             IServiceProvider services = new ServiceCollection().AddSingleton(_client).AddSingleton(_commands).AddSingleton(_botInfo).BuildServiceProvider();
 
